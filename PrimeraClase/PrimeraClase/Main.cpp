@@ -30,8 +30,8 @@ int main()
     //apuntador de refrencia a la ventana que se usara en la gpu
     GLFWwindow* window = glfwCreateWindow(800, 800, "test", NULL, NULL);
 
-    double seconds = 0.0f;
-    float anim = 0.1f;
+    GLfloat scale;
+    double seconds = 1.0f;
 
     glfwSetTime(0);
 
@@ -58,11 +58,11 @@ int main()
         GLfloat vertices[] =
         {
             -0.5f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.4902, 0.1294f, 0.5059f, //esquina inferior izquierda
-            0.5f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.3412f, 0.1373f, 0.3922f, //esquina inferior derecha
-            0.0f, -0.5f * float(sqrt(3)) * 2 / 3 , 0.0f, 0.3412f, 0.1373f, 0.3922f, //punta de la trifuerza
+            0.5f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.18431f,  0.18039f,  0.30980f, //esquina inferior derecha
+            0.0f, -0.5f * float(sqrt(3)) * 2 / 3 , 0.0f, 0.21176f, 0.94510f, 0.80392f, //punta de la trifuerza
             -0.5f / 2, -0.5f * float(sqrt(3)) / 6 , 0.0f, 0.3412f, 0.1373f, 0.3922f, //esquina superior izquierda
-            0.5f / 2, -0.5f * float(sqrt(3)) / 6 , 0.0f, 0.0f, 0.0f , 0.0f, //esquina superior derecha
-            0.0f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.3412f, 0.1373f, 0.3922f, //Base
+            0.5f / 2, -0.5f * float(sqrt(3)) / 6 , 0.0f,0.18431f,  0.18039f,  0.30980f, //esquina superior derecha
+            0.0f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.21176f, 0.94510f, 0.80392f, //Base
         };
         
 
@@ -83,7 +83,7 @@ int main()
         //Shader shaderProgram("default.vert", "default.frag");
         //Shader shaderInside("inner.vert", "inner.frag");
         Shader ExamOuter("ExamOuter.vert", "ExamOuter.frag");
-        //Shader ExamInner("ExamInner.vert", "ExamInner.frag");
+        Shader ExamInner("ExamInner.vert", "ExamInner.frag");
 
         VAO VAO1;
         VAO1.Bind();
@@ -112,27 +112,31 @@ int main()
         //GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale"); 
         //GLuint uniID = glGetUniformLocation(ExamOuter.ID, "scale");
         
+        int sinScale = glGetUniformLocation(ExamOuter.ID, "scale");
         
         
 
     while (!glfwWindowShouldClose(window))
     {
+        GLfloat time = glfwGetTime() * seconds;
         glClearColor(0.0f, 0.0f, 0.0f, 1);
         glClear(GL_COLOR_BUFFER_BIT);
         
         //shaderProgram.Activate();
         ExamOuter.Activate();
-        GLfloat sinScale = glGetUniformLocation(ExamOuter.ID, "sinScale");
-        GLfloat currentSinScale = smoothFloat(glfwGetTime());
-        std::cout << currentSinScale << std::endl;
+        scale = sin(time) * 0.2f + 1.0f; // scale sin value to range 0.8 to 1.2
+        std::cout << scale << std::endl;
 
-        glUniform1f(sinScale, currentSinScale);
+        glUniform1f(sinScale, scale);
 
         //std::cout << sinScale << std::endl;
 
         VAO1.Bind();
         glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 
+        ExamInner.Activate();
+        VAO1.Bind();
+        glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
         glfwSwapBuffers(window);
 
         glfwPollEvents();
@@ -144,7 +148,7 @@ int main()
 
         //shaderProgram.Delete();
         //shaderInside.Delete();
-        //ExamInner.Delete();
+        ExamInner.Delete();
         ExamOuter.Delete();
 
         glViewport(0, 0, 800, 800);

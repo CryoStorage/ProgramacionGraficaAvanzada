@@ -1,6 +1,4 @@
 ﻿  Main.cpp
-C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\PrimeraClase\Main.cpp(66,9): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\PrimeraClase\Main.cpp(126,26): warning C4244: 'initializing': conversion from 'GLint' to 'GLfloat', possible loss of data
-C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\PrimeraClase\Main.cpp(127,58): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\PrimeraClase\Main.cpp(130,21): warning C4244: 'argument': conversion from 'GLfloat' to 'GLint', possible loss of data
-  PrimeraClase.vcxproj -> C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\x64\Debug\PrimeraClase.exe
+C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\PrimeraClase\Main.cpp(66,9): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\PrimeraClase\Main.cpp(121,22): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+  PrimeraClase.vcxproj -> C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\x64\Debug\PrimeraClase.exe
