@@ -75,8 +75,8 @@
     <LibraryPath>C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,16 +149,6 @@
     <ClInclude Include="VBO.h" />
     <ClInclude Include="EBO.h" />
     <ClInclude Include="VAO.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
-    <None Include="ExamInner.frag" />
-    <None Include="ExamInner.vert" />
-    <None Include="ExamOuter.frag" />
-    <None Include="ExamOuter.vert" />
-    <None Include="inner.frag" />
-    <None Include="inner.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
