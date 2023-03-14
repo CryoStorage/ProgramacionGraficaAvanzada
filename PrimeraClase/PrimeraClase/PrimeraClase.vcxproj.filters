@@ -16,6 +16,9 @@
     <Filter Include="Archivos de recursos\Shaders">
       <UniqueIdentifier>{5088583f-1c07-4d05-bb96-11f2ca0729b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de recursos\Textures">
+      <UniqueIdentifier>{d569a477-d32a-4880-a0ce-4ce889e9cdd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -34,6 +37,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\glad.c">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,23 +64,10 @@
     <None Include="default.vert">
       <Filter>Archivos de recursos\Shaders</Filter>
     </None>
-    <None Include="inner.frag">
-      <Filter>Archivos de recursos\Shaders</Filter>
-    </None>
-    <None Include="inner.vert">
-      <Filter>Archivos de recursos\Shaders</Filter>
-    </None>
-    <None Include="ExamInner.frag">
-      <Filter>Archivos de recursos\Shaders</Filter>
-    </None>
-    <None Include="ExamInner.vert">
-      <Filter>Archivos de recursos\Shaders</Filter>
-    </None>
-    <None Include="ExamOuter.frag">
-      <Filter>Archivos de recursos\Shaders</Filter>
-    </None>
-    <None Include="ExamOuter.vert">
-      <Filter>Archivos de recursos\Shaders</Filter>
-    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="jake-benjamin-de-la-terre-floortexture512x512.jpg">
+      <Filter>Archivos de recursos\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
