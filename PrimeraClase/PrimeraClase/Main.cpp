@@ -10,11 +10,24 @@
 
 int main()
 {
+
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    //apuntador de refrencia a la ventana que se usara en la gpu
+    GLFWwindow* window = glfwCreateWindow(800, 800, "test", NULL, NULL);
+
+    glfwMakeContextCurrent(window);
+
+    gladLoadGL();
+
     // texture variables
     int w, h, numCol;
     // loading texture info
-    unsigned char* bytes = stbi_load("jbTex.jpg", &w, &h, &numCol, 0);
-    
+    unsigned char* bytes = stbi_load("d2Tex.jpg", &w, &h, &numCol, 0);
+
     // creating texture variable
     GLuint texture;
 
@@ -24,6 +37,7 @@ int main()
     // adding texture to Unit Texture
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
+
 
     // setting texture parameteres
     // filter type
@@ -42,14 +56,6 @@ int main()
     // free memory
     stbi_image_free(bytes);
     glBindTexture(GL_TEXTURE_2D, 0);
-
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    //apuntador de refrencia a la ventana que se usara en la gpu
-    GLFWwindow* window = glfwCreateWindow(800, 800, "test", NULL, NULL);
     
     glfwSetTime(0);
         GLfloat vertices[] =
@@ -94,8 +100,6 @@ int main()
         //Shader shaderInside("inner.vert", "inner.frag");
         Shader defaultShader("default.vert", "default.frag");
 
-
-
         VAO VAO1;
         VAO1.Bind();
         
@@ -105,7 +109,6 @@ int main()
 
         VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
         VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-
 
         VAO1.Unbind();
         VBO1.Unbind();
