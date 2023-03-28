@@ -10,7 +10,6 @@
 
 int main()
 {
-
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -29,7 +28,7 @@ int main()
     unsigned char* bytes = stbi_load("jbTex.jpg", &w, &h, &numCol, 0);
 
     //std::cout<< << sdt::endl;
-    //std::cout<< numCol << std::endl;
+    std::cout<< numCol << std::endl;
 
     // creating texture variable
     GLuint texture;
@@ -81,18 +80,18 @@ int main()
 
         GLuint triIndices[] =
         {
-        0, 3, 5, // Triangulo inferior izq
-        3, 2, 4, // Triangulo inferior der
-        5, 4, 1, // Triangulo superior
-        6, 9, 11,
-        9, 8, 10,
-        11, 10, 7,
+            0, 3, 5, // Triangulo inferior izq
+            3, 2, 4, // Triangulo inferior der
+            5, 4, 1, // Triangulo superior
+            6, 9, 11,
+            9, 8, 10,
+            11, 10, 7,
         };
 
         GLuint squareIndices[] =
         {
-         0, 2, 1,
-         0, 3, 2
+             0, 2, 1,
+             0, 3, 2
         };
 
         glfwMakeContextCurrent(window);
@@ -116,14 +115,24 @@ int main()
         VBO1.Unbind();
         EBO1.Unbind();
 
+
+        GLuint uniID = glGetUniformLocation(defaultShader.ID, "scale");
+        GLuint tex0uni = glGetUniformLocation(defaultShader.ID, "tex0");
+
+        defaultShader.Activate();
+        glUniform1i(tex0uni, 0);
+
         while (!glfwWindowShouldClose(window))
         {
-            glClearColor(0.16863,  0.18824,  0.22745, 1);
+            glBindTexture(GL_TEXTURE_2D, texture);
+            // dark grey
+            //glClearColor(0.16863,0.18824,0.22745,1);
+            // milkShadow
+            //glClearColor(0.32549,0.14510,0.24314,1)
+            // milkRed
+            glClearColor(0.67059,0.19608,0.19608,1);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            GLuint tex0uni = glGetUniformLocation(defaultShader.ID, "tex0");
-            defaultShader.Activate();
-            glUniform1i(tex0uni, 0);
 
             //std::cout << sinScale << std::endl;
 
