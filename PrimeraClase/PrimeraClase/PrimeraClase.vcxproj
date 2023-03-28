@@ -155,6 +155,10 @@
     <None Include="default.frag" />
     <None Include="default.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="d2Tex.png" />
+    <Image Include="jbTex.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

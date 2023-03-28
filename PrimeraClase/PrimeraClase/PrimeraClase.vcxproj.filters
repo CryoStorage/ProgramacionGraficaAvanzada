@@ -66,7 +66,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="jake-benjamin-de-la-terre-floortexture512x512.jpg">
+    <Image Include="d2Tex.png">
+      <Filter>Archivos de recursos\Textures</Filter>
+    </Image>
+    <Image Include="jbTex.jpg">
       <Filter>Archivos de recursos\Textures</Filter>
     </Image>
   </ItemGroup>

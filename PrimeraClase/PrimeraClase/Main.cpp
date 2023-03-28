@@ -26,7 +26,10 @@ int main()
     // texture variables
     int w, h, numCol;
     // loading texture info
-    unsigned char* bytes = stbi_load("d2Tex.jpg", &w, &h, &numCol, 0);
+    unsigned char* bytes = stbi_load("jbTex.jpg", &w, &h, &numCol, 0);
+
+    //std::cout<< << sdt::endl;
+    //std::cout<< numCol << std::endl;
 
     // creating texture variable
     GLuint texture;
@@ -49,7 +52,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     // transform into str space
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, bytes);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, bytes);
 
     // generating mipmap
     glGenerateMipmap(GL_TEXTURE_2D);
@@ -58,7 +61,7 @@ int main()
     glBindTexture(GL_TEXTURE_2D, 0);
     
     glfwSetTime(0);
-        GLfloat vertices[] =
+        GLfloat triVertices[] =
         {
             -0.5f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.4902, 0.1294f, 0.5059f, //esquina inferior izquierda
             0.5f, 0.5f * float(sqrt(3)) / 3 , 0.0f, 0.18431f,  0.18039f,  0.30980f, //esquina inferior derecha
@@ -69,14 +72,14 @@ int main()
         };
 
         GLfloat squareVertices[] =
-        {
-         -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
-         -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
-         0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
-         0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f
+        {//  |     coords      |      colors      | texCoord |
+             -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+             -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+             0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+             0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f
         };
 
-        GLuint indices[] =
+        GLuint triIndices[] =
         {
         0, 3, 5, // Triangulo inferior izq
         3, 2, 4, // Triangulo inferior der
@@ -96,8 +99,6 @@ int main()
         gladLoadGL();
 
         //se crean shaders
-        //Shader shaderProgram("default.vert", "default.frag");
-        //Shader shaderInside("inner.vert", "inner.frag");
         Shader defaultShader("default.vert", "default.frag");
 
         VAO VAO1;
@@ -107,8 +108,9 @@ int main()
 
         EBO EBO1(squareIndices, sizeof(squareIndices));
 
-        VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-        VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+        VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+        VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+        VAO1.LinkAttrib(VBO1, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
         VAO1.Unbind();
         VBO1.Unbind();
@@ -119,8 +121,9 @@ int main()
             glClearColor(0.16863,  0.18824,  0.22745, 1);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            //shaderProgram.Activate();
+            GLuint tex0uni = glGetUniformLocation(defaultShader.ID, "tex0");
             defaultShader.Activate();
+            glUniform1i(tex0uni, 0);
 
             //std::cout << sinScale << std::endl;
 
