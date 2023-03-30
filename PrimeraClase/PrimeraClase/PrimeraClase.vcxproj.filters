@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Textured.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="EBO.cpp">
@@ -58,10 +58,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag">
+    <None Include="textured.frag">
       <Filter>Archivos de recursos\Shaders</Filter>
     </None>
-    <None Include="default.vert">
+    <None Include="textured.vert">
       <Filter>Archivos de recursos\Shaders</Filter>
     </None>
   </ItemGroup>

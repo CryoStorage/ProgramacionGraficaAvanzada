@@ -98,7 +98,7 @@ int main()
         gladLoadGL();
 
         //se crean shaders
-        Shader defaultShader("default.vert", "default.frag");
+        Shader defaultShader("textured.vert", "textured.frag");
 
         VAO VAO1;
         VAO1.Bind();
@@ -121,6 +121,8 @@ int main()
 
         defaultShader.Activate();
         glUniform1i(tex0uni, 0);
+        //glUniform1i(uniID, .5f);
+    
 
         while (!glfwWindowShouldClose(window))
         {
@@ -148,9 +150,7 @@ int main()
         EBO1.Delete();
 
         defaultShader.Delete();
-   
-
-
+    
         glfwDestroyWindow(window);
         glfwTerminate();
         return 0;

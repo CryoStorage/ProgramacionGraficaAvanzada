@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Usuario\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,7 +139,7 @@
   <ItemGroup>
     <ClCompile Include="..\glad.c" />
     <ClCompile Include="EBO.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Textured.cpp" />
     <ClCompile Include="shaderClass.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="VAO.cpp" />
@@ -152,8 +152,8 @@
     <ClInclude Include="VAO.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
+    <None Include="textured.frag" />
+    <None Include="textured.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="d2Tex.png" />
