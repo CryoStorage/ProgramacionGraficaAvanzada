@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Textured.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="EBO.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -40,6 +37,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="stb.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,12 +64,21 @@
     <None Include="textured.vert">
       <Filter>Archivos de recursos\Shaders</Filter>
     </None>
+    <None Include="transition.frag">
+      <Filter>Archivos de recursos\Shaders</Filter>
+    </None>
+    <None Include="transition.vert">
+      <Filter>Archivos de recursos\Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="d2Tex.png">
       <Filter>Archivos de recursos\Textures</Filter>
     </Image>
     <Image Include="jbTex.jpg">
+      <Filter>Archivos de recursos\Textures</Filter>
+    </Image>
+    <Image Include="witness.jpg">
       <Filter>Archivos de recursos\Textures</Filter>
     </Image>
   </ItemGroup>

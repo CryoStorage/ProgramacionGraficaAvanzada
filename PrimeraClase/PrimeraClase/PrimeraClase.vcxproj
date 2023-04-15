@@ -75,8 +75,8 @@
     <LibraryPath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Verde3\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\CryoStorage\repo\ProgramacionGraficaAvanzada\PrimeraClase\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,7 +139,7 @@
   <ItemGroup>
     <ClCompile Include="..\glad.c" />
     <ClCompile Include="EBO.cpp" />
-    <ClCompile Include="Textured.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="shaderClass.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="VAO.cpp" />
@@ -154,10 +154,13 @@
   <ItemGroup>
     <None Include="textured.frag" />
     <None Include="textured.vert" />
+    <None Include="transition.frag" />
+    <None Include="transition.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="d2Tex.png" />
     <Image Include="jbTex.jpg" />
+    <Image Include="witness.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

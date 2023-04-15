@@ -27,7 +27,7 @@ int main()
     // flipping texture
     stbi_set_flip_vertically_on_load(true);
     // loading texture info
-    unsigned char* bytes0 = stbi_load("jbTex.jpg", &w, &h, &numCol, 0);
+    unsigned char* bytes0 = stbi_load("witness.jpg", &w, &h, &numCol, 0);
     unsigned char* bytes1 = stbi_load("d2Tex.jpg", &w, &h, &numCol, 0);
 
     //std::cout<< << sdt::endl;
@@ -133,26 +133,23 @@ int main()
 
         defaultShader.Activate();
 
-        GLuint uniMix = glGetUniformLocation(defaultShader.ID, "mixFactor");
+        GLfloat uniMix = glGetUniformLocation(defaultShader.ID, "mixFactor");
         GLuint uniScale = glGetUniformLocation(defaultShader.ID, "scale");
         GLuint tex0uni = glGetUniformLocation(defaultShader.ID, "tex0");
         GLuint tex1uni = glGetUniformLocation(defaultShader.ID, "tex1");
 
-        
         glUniform1i(tex0uni, 0);
         glUniform1i(tex1uni, 1);
-        glUniform1i(uniScale, .5f);
-    
-    
+        glUniform1i(uniScale, 1.5f);
 
         while (!glfwWindowShouldClose(window))
         {
             double seconds = 1.0f;
             GLfloat time = glfwGetTime() * seconds;
             // dark grey
-            // glClearColor(0.16863,0.18824,0.22745,1);
+             glClearColor(0.16863,0.18824,0.22745,1);
             // milkShadow
-            glClearColor(0.32549,0.14510,0.24314,1);
+            //glClearColor(0.32549,0.14510,0.24314,1);
             // milkRed
             //glClearColor(0.67059,0.19608,0.19608,1);
             glClear(GL_COLOR_BUFFER_BIT);
@@ -161,9 +158,10 @@ int main()
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, texture0);
             
-            uniMix = sin(time)* 0.2f + 1.0f; // scale sin value to range 0 to 1
-            glUniform1i(uniMix, uniMix);
-            std::cout << uniMix << std::endl;
+            float mix = sin(time) * 0.5f + 0.5f; // scale sin value to range 0 to 1
+            glUniform1f(uniMix, mix);
+
+            std::cout << mix << std::endl;
             // set as texture1 as active texture
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_2D, texture1);
